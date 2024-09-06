@@ -24,13 +24,28 @@ repositories {
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("org.springframework.boot:spring-boot-starter-web")
-    compileOnly("org.projectlombok:lombok")
-    developmentOnly("org.springframework.boot:spring-boot-devtools")
-    annotationProcessor("org.projectlombok:lombok")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+// Spring Boot
+  implementation("org.springframework.boot:spring-boot-starter-validation")
+  implementation("org.springframework.boot:spring-boot-starter-actuator")
+  implementation("org.springframework.boot:spring-boot-starter-web")
+  implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+  developmentOnly("org.springframework.boot:spring-boot-devtools")
+
+  // Lombok
+  testImplementation("org.projectlombok:lombok:1.18.22")
+  annotationProcessor("org.projectlombok:lombok")
+  compileOnly("org.projectlombok:lombok")
+
+  // Util
+  implementation("com.github.f4b6a3:ulid-creator:5.2.3")
+  implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.15.2")
+
+  // Test
+  testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+  testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+  // DB
+  runtimeOnly("com.h2database:h2")
 }
 
 tasks.withType<Test> {
