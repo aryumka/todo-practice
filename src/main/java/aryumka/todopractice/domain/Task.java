@@ -35,10 +35,12 @@ public class Task {
 
   private Task(
     String title,
-    String description
+    String description,
+    Board board
   ) {
     this.title = title;
     this.description = description;
+    this.board = board;
     this.status = TaskStatus.NOT_STARTED;
     this.deleted = false;
     this.createdAt = LocalDateTime.now();
@@ -48,17 +50,21 @@ public class Task {
 
   public static Task create(
     String title,
-    String description
+    String description,
+    Board board
   ) {
-    return new Task(title, description);
+    return new Task(title, description, board);
   }
 
   public void update(
     String title,
-    String description
+    String description,
+    Board board
   ) {
     this.title = title;
     this.description = description;
+    this.board = board;
+
     this.updatedAt = LocalDateTime.now();
   }
 
