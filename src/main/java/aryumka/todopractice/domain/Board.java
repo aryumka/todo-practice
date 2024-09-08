@@ -16,7 +16,7 @@ public class Board {
 
   private String title;
 
-  @OneToMany(mappedBy = "board")
+  @OneToMany(mappedBy = "board", cascade = CascadeType.ALL)
   private List<Task> tasks;
 
   private boolean deleted;
