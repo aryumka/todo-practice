@@ -22,6 +22,7 @@ public class Task {
   @JoinColumn(name = "board_id")
   private Board board;
 
+  @Enumerated(EnumType.STRING)
   private TaskStatus status;
 
   private boolean deleted;
