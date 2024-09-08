@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
-@Entity
+@Entity(name = "tasks")
 @Getter
 @NoArgsConstructor
 public class Task {

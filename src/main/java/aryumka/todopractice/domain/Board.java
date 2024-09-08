@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@Entity
+@Entity(name="boards")
 @Getter
 @NoArgsConstructor
 public class Board {
