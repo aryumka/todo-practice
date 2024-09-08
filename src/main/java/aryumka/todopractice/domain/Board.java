@@ -10,7 +10,6 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 public class Board {
-  // 실제 칼럼 이름은 board_id
   @Id @GeneratedValue
   @Column(name = "board_id")
   private Long id;
