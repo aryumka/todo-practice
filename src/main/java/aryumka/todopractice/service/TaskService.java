@@ -2,7 +2,6 @@ package aryumka.todopractice.service;
 
 import aryumka.todopractice.domain.Board;
 import aryumka.todopractice.domain.Task;
-import aryumka.todopractice.domain.TaskStatus;
 import aryumka.todopractice.repository.BoardRepository;
 import aryumka.todopractice.repository.TaskRepository;
 import lombok.AllArgsConstructor;
@@ -14,7 +13,7 @@ public class TaskService {
     private final TaskRepository taskRepository;
     private final BoardRepository boardRepository;
 
-    public Task createTask(
+    public Task create(
         String title,
         String content,
         Long boardId
@@ -26,19 +25,40 @@ public class TaskService {
         return taskRepository.save(task);
     }
 
-    public void updateTask(
+    public void update(
         Long taskId,
         String title,
-        String content,
-        Board board
+        String content
     ) {
         Task task = taskRepository.findById(taskId)
             .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 할 일입니다."));
 
-        task.update(title, content, board);
+        task.updateContent(title, content);
     }
 
-    public void deleteTask(
+    public void move(
+        Long taskId,
+        Long boardId
+    ) {
+        Task task = taskRepository.findById(taskId)
+            .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 할 일입니다."));
+
+        Board board = boardRepository.findById(boardId)
+            .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 게시판입니다."));
+
+        task.move(board);
+    }
+
+    public void complete(
+        Long taskId
+    ) {
+        Task task = taskRepository.findById(taskId)
+            .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 할 일입니다."));
+
+        task.complete();
+    }
+
+    public void delete(
         Long taskId
     ) {
         Task task = taskRepository.findById(taskId)

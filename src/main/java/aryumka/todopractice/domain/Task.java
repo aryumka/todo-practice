@@ -1,7 +1,6 @@
 package aryumka.todopractice.domain;
 
 import jakarta.persistence.*;
-import lombok.Generated;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -56,16 +55,20 @@ public class Task {
     return new Task(title, description, board);
   }
 
-  public void update(
+  public void updateContent(
     String title,
-    String description,
-    Board board
+    String description
   ) {
     this.title = title;
     this.description = description;
-    this.board = board;
 
     this.updatedAt = LocalDateTime.now();
+  }
+
+  public void move(
+    Board board
+  ) {
+    this.board = board;
   }
 
   public void start() {
