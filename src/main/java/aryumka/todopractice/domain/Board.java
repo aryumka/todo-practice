@@ -35,6 +35,7 @@ public class Board {
     return new Board(title);
   }
 
+  //todo Task를 여기서 추가하는게 맞을까?
   public void addTask(
     Task task
   ) {
